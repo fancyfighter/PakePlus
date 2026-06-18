@@ -24,3 +24,17 @@ window.open = function (url, target, features) {
 }
 
 document.addEventListener('click', hookClick, { capture: true })
+
+// 监听登录成功：定义一个检查函数
+function checkAndRedirect() {
+    // 假设登录成功后，页面会跳转到 10.0.0.19 的另一个页面，比如 /success.html，或者页面的标题会变成 "登录成功"
+    
+    // 访问“http://10.0.0.19/”“https://www.baidu.com/”都会提示“该域名未授权”，访问“https://www.fjpit.edu.cn/”则正常
+    if (window.location.pathname === '/success.html' || 
+        document.title.includes('注销页') || document.title.includes('百度一下，你就知道') || document.title.includes('福建信息职业技术学院')) {
+        window.location.replace('https://passport2.chaoxing.com/login');
+    }
+}
+
+// 每隔 500毫秒 检查一次页面状态
+setInterval(checkAndRedirect, 500);
