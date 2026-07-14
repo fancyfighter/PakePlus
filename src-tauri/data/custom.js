@@ -10,6 +10,6 @@ const authTimer = setInterval(() => {
 // 二次跳板：已安全到达学校官网，网络已完全打通，这时超星能完美打开，不会有前面的提示
 if (window.location.href.includes("fjpit.edu.cn")) {
     setTimeout(() => {
-        window.location.replace("https://passport2.chaoxing.com/login");
+        window.location.replace("https://i.chaoxing.com/");    // 原为https://passport2.chaoxing.com/login
     }, 500);
 }
